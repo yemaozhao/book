@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', $product->name)
+@section('title', $product->name) 
 
 @section('content')
   <link rel="stylesheet" type="text/css" href="/book/public/css/swipe.css" >

@@ -20,15 +20,15 @@
 <div class="weui_cells weui_cells_access">
     <a class="weui_cell" href="javascript:;">
         <div class="weui_cell_bd weui_cell_primary">
-            <p>cell standard</p>
+            <p></p>
         </div>
-        <div class="weui_cell_ft">说明文字</div>
+        <div class="weui_cell_ft"></div>
     </a>
     <a class="weui_cell" href="javascript:;">
         <div class="weui_cell_bd weui_cell_primary">
-            <p>cell standard</p>
+            <p></p>
         </div>
-        <div class="weui_cell_ft">说明文字</div>
+        <div class="weui_cell_ft"></div>
     </a>
 </div>
 
@@ -38,9 +38,9 @@
 
 @section('my-js')
 <script type="text/javascript">
-
-_getCategory();
-
+// 进入页面调用一次此方法
+_getCategory();  
+// 每次改变下拉框选项也调用一次该方法
 $('.weui_select').change(function(event) {
   _getCategory()
 });
@@ -70,7 +70,7 @@ function _getCategory() {
       }
       $('.weui_cells_access').html('');
       for(var i=0; i<data.categorys.length; i++) {
-        var next = '/product/category_id/' + data.categorys[i].id; // 跳转到详情页
+        var next = '/book/public/index.php/product/category_id/' + data.categorys[i].id; // 跳转到详情页
         var node = '<a class="weui_cell" href="' + next + '">' +
                         '<div class="weui_cell_bd weui_cell_primary">' +
                             '<p>'+ data.categorys[i].name +'</p>' +

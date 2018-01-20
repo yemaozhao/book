@@ -6,14 +6,26 @@
 	<title>@yield('title')</title>
 	<link rel="stylesheet" type="text/css" href="/book/public/css/weui.css" >
 	<link rel="stylesheet" type="text/css" href="/book/public/css/book.css" >
+  <style type="text/css">
+      .bk_title_bar {position: relative;height: 50px;width: 100%; background-color: #25201f}
+      .bk_title_content {position: absolute;left: 50px;right: 50px;line-height: 50px;text-align: center;font-size: 18px;color: #FFFFFF}
+      .bk_back, .bk_menu {position: absolute;width: 30px;height: 30px;top: 10px;}
+      .bk_back {left: 10px;}
+      .bk_menu {right: 10px;}
+
+      .bk_content {margin-bottom: 50px;}
+      .bk_fix_bottom {position: fixed; bottom: 0; width: 100%; background-color: #eeeeee;}
+      .bk_half_area {width: 45%; padding: 5px 2%; display: inline-block;}
+      .bk_btn_area {width: 96%; padding: 5px 2%; display: inline-block;}
+  </style>
 </head>
 <body>
   
-  <div style="position: relative;height: 50px;width: 100%; background-color: #25201f" >
+  <div class="bk_title_bar" >
     {{-- <a href="#">返回</a> --}}
-     <img onclick="history.go(-1);" style="position: absolute;width: 30px;height: 30px;top: 10px;left: 10px;"src="/book/public/images/back.png" alt="">  
-    <p class="bk_title_content" style="position: absolute;left: 50px;right: 50px;line-height: 50px;text-align: center;font-size: 18px;color: #FFFFFF;">xxx</p>
-    <img onclick="onMenuClick();" style="position: absolute;width: 30px;height: 30px;top: 10px;right: 10px;" src="/book/public/images/menu.png" alt="" > 
+     <img onclick="history.go(-1);" class="bk_back" src="/book/public/images/back.png" alt="">  
+    <p class="bk_title_content" > </p>
+    <img onclick="onMenuClick();" class="bk_menu" src="/book/public/images/menu.png" alt="" > 
     {{-- <a href="#" style="position: absolute;width: 30px;height: 30px;top: 10px;">菜单</a> --}}
 
   </div>
