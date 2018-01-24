@@ -34,6 +34,8 @@ class BookController extends Controller
 
     $count = 0;
 
+    // -----------------如果当前已经登录,读取数据库-----------------------------//
+
     $member = $request->session()->get('member', '');
     if($member != '') {
       $cart_items = CartItem::where('member_id', $member->id)->get();
@@ -44,11 +46,13 @@ class BookController extends Controller
           break;
         }
       }
-    } else {
+    } 
+    //-------------------------未登录时，直接读取cookie-------------------------------//   
+    else {
       $bk_cart = $request->cookie('bk_cart');
       $bk_cart_arr = ($bk_cart!=null ? explode(',', $bk_cart) : array());
 
-      foreach ($bk_cart_arr as $value) {   // 一定要传引用
+      foreach ($bk_cart_arr as $value) {   
         $index = strpos($value, ':');
         if(substr($value, 0, $index) == $product_id) {
           $count = (int) substr($value, $index+1);

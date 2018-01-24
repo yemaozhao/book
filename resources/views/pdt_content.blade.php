@@ -77,7 +77,7 @@
     var product_id = "{{$product->id}}";
     $.ajax({
       type: "GET",
-      url: '/service/cart/add/' + product_id,
+      url: '/book/public/index.php/service/cart/add/' + product_id,
       dataType: 'json',
       cache: false,
       success: function(data) {
@@ -108,7 +108,7 @@
   }
 
   function _toCart() {
-    location.href = '/cart';
+    location.href = '/book/public/index.php/cart';
   }
 </script>
 

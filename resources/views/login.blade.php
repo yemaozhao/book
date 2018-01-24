@@ -1,6 +1,6 @@
 @extends('master')
 
-
+@include('component.loading')
 
 @section('title','登录')
 
@@ -12,19 +12,19 @@
   <div class="weui_cell">
       <div class="weui_cell_hd"><label class="weui_label">帐号</label></div>
       <div class="weui_cell_bd weui_cell_primary">
-          <input class="weui_input" type="tel" placeholder="邮箱或手机号"/>
+          <input class="weui_input" type="tel" placeholder="邮箱或手机号" name="username"/>
       </div>
   </div>
   <div class="weui_cell">
       <div class="weui_cell_hd"><label class="weui_label">密码</label></div>
       <div class="weui_cell_bd weui_cell_primary">
-          <input class="weui_input" type="tel" placeholder="不少于6位"/>
+          <input class="weui_input" type="tel" placeholder="不少于6位" name="password"/>
       </div>
   </div>
   <div class="weui_cell weui_vcode">
       <div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
       <div class="weui_cell_bd weui_cell_primary">
-          <input class="weui_input" type="number" placeholder="请输入验证码"/>
+          <input class="weui_input" type="text" placeholder="请输入验证码" name="validate_code"/>
       </div>
       <div class="weui_cell_ft">
           <img src="/book/public/index.php/service/validate/create" class="bk_validate_code"/>
@@ -122,7 +122,7 @@
         $('.bk_toptips span').html('登录成功');
         setTimeout(function() {$('.bk_toptips').hide();}, 2000);
 
-        
+        location.href = "{!!$return_url!!}";
 
       },
       error: function(xhr, status, error) {

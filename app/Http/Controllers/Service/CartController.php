@@ -15,7 +15,7 @@ class CartController extends Controller
     $m3_result->status = 0;
     $m3_result->message = '添加成功';
 
-    // 如果当前已经登录
+    // -----------------如果当前已经登录,更新数据库-----------------------------//
     $member = $request->session()->get('member', '');
     if($member != '') {
       $cart_items = CartItem::where('member_id', $member->id)->get();
@@ -41,6 +41,8 @@ class CartController extends Controller
       return $m3_result->toJson();
     }
 
+    //-------------------------未登录时，直接修改cookie-------------------------------//
+
     $bk_cart = $request->cookie('bk_cart');
     $bk_cart_arr = ($bk_cart!=null ? explode(',', $bk_cart) : array());
 
@@ -63,17 +65,21 @@ class CartController extends Controller
 
   public function deleteCart(Request $request)
   {
+    // return 'xxx';
+
     $m3_result = new M3Result;
     $m3_result->status = 0;
     $m3_result->message = '删除成功';
-
+//-------------------------------------------//
     $product_ids = $request->input('product_ids', '');
     if($product_ids == '') {
       $m3_result->status = 1;
       $m3_result->message = '书籍ID为空';
       return $m3_result->toJson();
     }
-    $product_ids_arr = explode(',', $product_ids);
+    $product_ids_arr = explode(',', $product_ids);  //字符串  --->  数组
+
+//-----------------判断是否登录---------------------//
 
     $member = $request->session()->get('member', '');
     if($member != '') {
@@ -82,12 +88,12 @@ class CartController extends Controller
         return $m3_result->toJson();
     }
 
-    $product_ids = $request->input('product_ids', '');
-    if($product_ids == '') {
-      $m3_result->status = 1;
-      $m3_result->message = '书籍ID为空';
-      return $m3_result->toJson();
-    }
+    // $product_ids = $request->input('product_ids', '');
+    // if($product_ids == '') {
+    //   $m3_result->status = 1;
+    //   $m3_result->message = '书籍ID为空';
+    //   return $m3_result->toJson();
+    // }
 
     // 未登录
     $bk_cart = $request->cookie('bk_cart');

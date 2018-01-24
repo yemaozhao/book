@@ -13,5 +13,6 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
+        '/book/public/index.php/service/pay/notify'
     ];
 }
