@@ -32,7 +32,7 @@
   </form> --}}
   <div class="bk_fix_bottom">
     <div class="bk_half_area">
-      <button class="weui_btn weui_btn_primary" onclick="_toCharge();">结算</button>
+      <button class="weui_btn weui_btn_primary" onclick="_toCharge();">提交订单</button>
     </div>
     <div class="bk_half_area">
       <button class="weui_btn weui_btn_default" onclick="_onDelete();">删除</button>

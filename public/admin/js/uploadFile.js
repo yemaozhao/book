@@ -7,6 +7,7 @@ function uploadFileToServer(fileElmId, type, id)
 		dataType: 'text',
 		success: function (data)
 		{
+
 			var result = JSON.parse(data);
 			$("#"+id).val(result.uri);
 		},
@@ -19,21 +20,35 @@ function uploadFileToServer(fileElmId, type, id)
 
 function uploadImageToServer(fileElmId, type, id)
 {
-	$("#"+id).attr("src", "/admin/images/loading_072.gif");
+     console.log('开始上传图片');
+
+	$("#"+id).attr("src", "/book/public/admin/images/loading_072.gif");
 	$.ajaxFileUpload({
-		url: '/service/upload/' + type,
+		url: '/book/public/index.php/service/upload/' + type,
 		fileElementId: fileElmId,
 		dataType: 'text',
 		success: function (data)
 		{
+			// console.log(data);
+			// return;			
+
 			var result = JSON.parse(data);
 			$("#"+id).attr("src", result.uri);
+			console.log(result);
 		},
     error: function (XMLHttpRequest, textStatus, errorThrown) {
-      alert(errorThrown);
+      // alert(errorThrown);
+      console.log(errorThrown);
     }
 	});
 	return false;
+}
+
+function changeImage()
+{
+     console.log('改变了图片');
+     // alert('触发点击事件');
+     return false;
 }
 
 /// JQuery Extends

@@ -1,10 +1,10 @@
 @extends('admin.master')
 
 @section('content')
-<header class="Hui-header cl"><a class="Hui-logo l" title="凯恩书店" href="/book/public/admin/index">凯恩书店</a><span class="Hui-subtitle l">后台</span>
+<header class="Hui-header cl"><a class="Hui-logo l" title="米塞斯书店后台" href="/book/public/index.php/admin/index">米塞斯书店---后台管理系统</a><span class="Hui-subtitle l"></span>
 	<ul class="Hui-userbar">
 		<li>{{$admin->username}}</li>
-		<li><a href="/book/public/admin/exit">退出</a></li>
+		<li><a href="/book/public/index.php/admin/exit">退出</a></li>
 		<li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
 	</ul>
 	<a href="javascript:;" class="Hui-nav-toggle Hui-iconfont" aria-hidden="false">&#xe667;</a>
@@ -16,8 +16,8 @@
 			<dt><i class="Hui-iconfont">&#xe620;</i> 产品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a _href="/book/public/admin/category" data-title="分类管理" href="javascript:void(0)">分类管理</a></li>
-					<li><a _href="/book/public/admin/product" data-title="产品管理" href="javascript:void(0)">产品管理</a></li>
+					<li><a _href="/book/public/index.php/admin/category" data-title="分类管理" href="javascript:void(0)">分类管理</a></li>
+					<li><a _href="/book/public/index.php/admin/product" data-title="产品管理" href="javascript:void(0)">产品管理</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -25,7 +25,7 @@
 			<dt><i class="Hui-iconfont">&#xe687;</i> 订单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a _href="/book/public/admin/order" data-title="订单列表" href="javascript:void(0)">订单列表</a></li>
+					<li><a _href="/book/public/index.php/admin/order" data-title="订单列表" href="javascript:void(0)">订单列表</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -33,7 +33,7 @@
 			<dt><i class="Hui-iconfont">&#xe60d;</i> 会员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a _href="/book/public/admin/member" data-title="会员列表" href="javascript:;">会员列表</a></li>
+					<li><a _href="/book/public/index.php/admin/member" data-title="会员列表" href="javascript:;">会员列表</a></li>
 				</ul>
 			</dd>
 		</dl>

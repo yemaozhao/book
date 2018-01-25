@@ -32,7 +32,7 @@
   <div class="row cl">
     <label class="form-label col-3">预览图：</label>
     <div class="formControls col-5">
-      <img id="preview_id" src="/admin/images/icon-add.png" style="border: 1px solid #B8B9B9; width: 100px; height: 100px;" onclick="$('#input_id').click()" />
+      <img id="preview_id" src="/book/public/admin/images/icon-add.png" style="border: 1px solid #B8B9B9; width: 100px; height: 100px;" onclick="$('#input_id').click()" />
       <input type="file" name="file" id="input_id" style="display: none;" onchange="return uploadImageToServer('input_id','images', 'preview_id');" />
     </div>
   </div>
@@ -45,7 +45,20 @@
 @endsection
 
 @section('my-js')
+
+{{-- <script type="text/javascript">
+
+    function changeImage()
+    {
+         console.log('开始上传图片');
+         alert('触发点击事件');
+         return false;
+    }
+</script> --}}
+
 <script type="text/javascript">
+     console.log('新增分类：');
+
   $("#form-category-add").Validform({
     tiptype:2,
     callback:function(form){
@@ -55,13 +68,13 @@
       // parent.layer.close(index);
       $('#form-category-add').ajaxSubmit({
           type: 'post', // 提交方式 get/post
-          url: '/admin/service/category/add', // 需要提交的 url
+          url: '/book/public/index.php/admin/service/category/add', // 需要提交的 url
           dataType: 'json',
           data: {
             name: $('input[name=name]').val(),
             category_no: $('input[name=category_no]').val(),
             parent_id: $('select[name=parent_id] option:selected').val(),
-            preview: ($('#preview_id').attr('src')!='/admin/images/icon-add.png'?$('#preview_id').attr('src'):''),
+            preview: ($('#preview_id').attr('src')!='/book/public/admin/images/icon-add.png'?$('#preview_id').attr('src'):''),
             _token: "{{csrf_token()}}"
           },
           success: function(data) {
@@ -88,7 +101,7 @@
           },
         });
 
-        return false;
+        return false;  // 不需要再处理form表单
     }
   });
 </script>

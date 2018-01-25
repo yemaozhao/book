@@ -30,6 +30,6 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-        return $this->view('email_register');
+        return $this->subject('邮箱验证')->view('email_register');
     }
 }

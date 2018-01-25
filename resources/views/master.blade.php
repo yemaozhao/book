@@ -44,7 +44,10 @@
     <div class="weui_mask_transition" id="mask"></div>
     <div class="weui_actionsheet" id="weui_actionsheet">
         <div class="weui_actionsheet_menu">
-            <div class="weui_actionsheet_cell" onclick="onMenuItemClick(1)">主页</div>
+            <div class="weui_actionsheet_cell" onclick="onMenuItemClick(1)">登录/注册@if(Session::has('member')) (已登录) 
+            @else
+            (未登录) 
+          @endif</div>
             <div class="weui_actionsheet_cell" onclick="onMenuItemClick(2)">书籍类别</div>
             <div class="weui_actionsheet_cell" onclick="onMenuItemClick(3)">购物车</div>
             <div class="weui_actionsheet_cell" onclick="onMenuItemClick(4)">我的订单</div>
@@ -87,16 +90,19 @@ function onMenuItemClick(index) {
   var weuiActionsheet = $('#weui_actionsheet');
   hideActionSheet(weuiActionsheet, mask);
   if(index == 1) {
-    $('.bk_toptips').show();
-    $('.bk_toptips span').html("敬请期待!");
-    setTimeout(function() {$('.bk_toptips').hide();}, 2000);
+
+    location.href='/book/public/index.php/login';
+
+    // $('.bk_toptips').show();
+    // $('.bk_toptips span').html("敬请期待!");
+    // setTimeout(function() {$('.bk_toptips').hide();}, 2000);
   } else if(index == 2) {
-    location.href='#';
+    location.href='/book/public/index.php/category';
   } else if(index == 3){
-    location.href='#';
+    location.href='/book/public/index.php/cart';
 
   }else if(index == 4){
-    location.href='#';
+    location.href='/book/public/index.php/order_list';
     
   } else {
     $('.bk_toptips').show();

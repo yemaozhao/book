@@ -11,6 +11,21 @@ use App\Models\M3Result;
 
 class PayController extends Controller
 {
+
+  public function basicPay(Request $request) 
+  {
+    //商户订单号
+    $out_trade_no = $_POST['order_no'];
+    // 修改用户的订单状态
+          Log::info('支付成功');
+          $order = Order::where('order_no', $out_trade_no)->first();
+          $order->status = 2;
+          $order->save();
+
+          return redirect('/order_list');
+  }
+
+
   public function aliPay(Request $request) {
 
     require_once(app_path() . "/Tool/Alipay/alipay.config.php");

@@ -40,7 +40,7 @@
       var status = $('select option:selected').val();
       $('#form-order-edit').ajaxSubmit({
           type: 'post', // 提交方式 get/post
-          url: '/admin/service/order/edit', // 需要提交的 url
+          url: '/book/public/index.php/admin/service/order/edit', // 需要提交的 url
           dataType: 'json',
           data: {
             id: "{{$order->id}}",

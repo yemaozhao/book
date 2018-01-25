@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('content')
-  <link href="css/H-ui.login.css" rel="stylesheet" type="text/css" />
+  <link href="/book/public/admin/css/H-ui.login.css" rel="stylesheet" type="text/css" />
 
   <div class=""></div>
   <div class="loginWraper">
@@ -28,7 +28,7 @@
       </form>
     </div>
   </div>
-  <div class="footer">Copyright 米塞斯书店有限公司</div>
+  <div class="footer">Copyright 米塞斯书店</div>
 @endsection
 
 @section('my-js')

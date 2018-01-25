@@ -18,7 +18,7 @@
   <div class="weui_cell">
       <div class="weui_cell_hd"><label class="weui_label">密码</label></div>
       <div class="weui_cell_bd weui_cell_primary">
-          <input class="weui_input" type="tel" placeholder="不少于6位" name="password"/>
+          <input class="weui_input" type="password" placeholder="不少于6位" name="password"/>
       </div>
   </div>
   <div class="weui_cell weui_vcode">

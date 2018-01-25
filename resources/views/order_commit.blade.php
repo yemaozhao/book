@@ -37,6 +37,13 @@
         </div>
     </div>
 
+    <form action="/book/public/index.php/service/basic_pay" id="basic_pay" method="post">
+      {{ csrf_field() }}
+      <input type="hidden" name="total_price" value="{{$total_price}}" />
+      <input type="hidden" name="name" value="{{$name}}" />
+      <input type="hidden" name="order_no" value="{{$order_no}}" />
+    </form>
+
     <form action="/service/alipay" id="alipay" method="post">
       {{ csrf_field() }}
       <input type="hidden" name="total_price" value="{{$total_price}}" />
@@ -56,7 +63,7 @@
   </div>
   <div class="bk_fix_bottom">
     <div class="bk_btn_area">
-      <button class="weui_btn weui_btn_primary" onclick="_onPay();">提交订单</button>
+      <button class="weui_btn weui_btn_primary" onclick="_onPay();">完成支付</button>
     </div>
   </div>
 
@@ -83,12 +90,25 @@
 
   function _onPay() {
 
+    // 基本付款流程
+    var payway = $('.weui_select option:selected').val();
+    {
+      $('.bk_toptips').show();
+      $('.bk_toptips span').html('支付成功');
+      setTimeout(function() {$('.bk_toptips').hide();}, 3000);
+
+      $('#basic_pay').submit();
+      return;
+    }
+
+    // 支付宝支付
     var payway = $('.weui_select option:selected').val();
     if(payway == '1') {
       $('#alipay').submit();
       return;
     }
 
+    // 微信支付
     $.ajax({
       type: "POST",
       url: '/service/wxpay',

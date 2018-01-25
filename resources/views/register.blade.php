@@ -223,6 +223,7 @@
           data: {phone: phone, email: email, password: password, confirm: confirm,
             phone_code: phone_code, validate_code: validate_code, _token: "{{csrf_token()}}"},
           success: function(data) {
+            console.log('返回的data：');
             console.log(data);
 
             if(data == null) {
@@ -237,10 +238,19 @@
               setTimeout(function() {$('.bk_toptips').hide();}, 2000);
               return;
             }
+            if(data.email != null)
+            {
+              $('.bk_toptips').show();
+              $('.bk_toptips span').html('验证邮件已发送,请在24小时内完成验证操作');
+              setTimeout(function() {$('.bk_toptips').hide();}, 10000);
+              return;
+            }
 
             $('.bk_toptips').show();
             $('.bk_toptips span').html('注册成功');
             setTimeout(function() {$('.bk_toptips').hide();}, 2000);
+
+            location.href = '/book/public/index.php/login';
           },
           error: function(xhr, status, error) {
             console.log(xhr);

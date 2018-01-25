@@ -4,7 +4,7 @@
   <div class="pd-20">
   	<div class="cl pd-5 bg-1 bk-gray mt-20">
   		<span class="l">
-  			<a href="javascript:;" onclick="product_add('添加产品','/admin/product_add')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加产品</a>
+  			<a href="javascript:;" onclick="product_add('添加产品','/book/public/index.php/admin/product_add')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加产品</a>
   		</span>
   		<span class="r">共有数据：<strong>{{count($products)}}</strong> 条</span>
   	</div>
@@ -33,8 +33,8 @@
   						<img src="{{$product->preview}}" alt="" style="width: 50px; height: 50px;">
   					@endif</td>
   					<td class="td-manage">
-              <a title="详情" href="javascript:;" onclick="product_info('产品详情','/admin/product_info?id={{$product->id}}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe695;</i></a>
-  						<a title="编辑" href="javascript:;" onclick="product_edit('编辑产品','/admin/product_edit?id={{$product->id}}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+              <a title="详情" href="javascript:;" onclick="product_info('产品详情','/book/public/index.php/admin/product_info?id={{$product->id}}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe695;</i></a>
+  						<a title="编辑" href="javascript:;" onclick="product_edit('编辑产品','/book/public/index.php/admin/product_edit?id={{$product->id}}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
   						<a title="删除" href="javascript:;" onclick='product_del("{{$product->name}}", "{{$product->id}}")' class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
   					</td>
   				</tr>

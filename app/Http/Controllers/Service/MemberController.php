@@ -72,6 +72,7 @@ class MemberController extends Controller
         $member = new Member;
         $member->phone = $phone;
         $member->password = md5('bk' + $password);
+        $member->active = 1;
         $member->save();
 
         $m3_result->status = 0;
@@ -122,10 +123,23 @@ class MemberController extends Controller
       ChromePhp::log('UUID-->'.$uuid);
       ChromePhp::log('$m3_email-->'.json_encode($m3_email, JSON_UNESCAPED_UNICODE));
 
-      Mail::to($m3_email->to)->cc($m3_email->cc)->send(new OrderShipped($m3_email));
+      $sendRes=Mail::to($m3_email->to)->cc($m3_email->cc)->send(new OrderShipped($m3_email));
 
-      $m3_result->status = 0;
-      $m3_result->message = '注册成功';
+      if($sendRes)
+      {
+        // $m3_result->status = 0;
+        // $m3_result->message = '注册成功';
+        // ChromePhp::log('sendRes-->'.json_encode($sendRes, JSON_UNESCAPED_UNICODE));
+        // ChromePhp::log('returnJson-->'.$m3_result->toJson());
+      }
+      else
+      {
+        $m3_result->status = 0;
+        $m3_result->message = '发送邮件成功';
+        $m3_result->email = $m3_email->subject;
+        ChromePhp::log('sendRes-->success send');
+      }
+
       return $m3_result->toJson();
     }
   }
@@ -161,11 +175,20 @@ class MemberController extends Controller
       $m3_result->message = '该用户不存在';
       return $m3_result->toJson();
     } else {
+      
+      if($member->active != 1 ) 
+      {
+        $m3_result->status = 4;
+        $m3_result->message = '该用户尚未完成邮箱验证';
+        return $m3_result->toJson();
+      }
+
       if(md5('bk' + $password) != $member->password) {
         $m3_result->status = 3;
         $m3_result->message = '密码不正确';
         return $m3_result->toJson();
       }
+
     }
 
     $request->session()->put('member', $member);

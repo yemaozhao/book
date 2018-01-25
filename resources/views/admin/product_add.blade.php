@@ -38,7 +38,7 @@
   <div class="row cl">
     <label class="form-label col-2">预览图：</label>
     <div class="formControls col-5">
-      <img id="preview_id" src="/admin/images/icon-add.png" style="border: 1px solid #B8B9B9; width: 100px; height: 100px;" onclick="$('#input_id').click()" />
+      <img id="preview_id" src="/book/public/admin/images/icon-add.png" style="border: 1px solid #B8B9B9; width: 100px; height: 100px;" onclick="$('#input_id').click()" />
       <input type="file" name="file" id="input_id" style="display: none;" onchange="return uploadImageToServer('input_id','images', 'preview_id');" />
     </div>
   </div>
@@ -51,15 +51,15 @@
   <div class="row cl">
     <label class="form-label col-2">产品图片：</label>
     <div class="formControls col-8">
-      <img id="preview_id1" src="/admin/images/icon-add.png" style="border: 1px solid #B8B9B9; width: 100px; height: 100px;" onclick="$('#input_id1').click()" />
+      <img id="preview_id1" src="/book/public/admin/images/icon-add.png" style="border: 1px solid #B8B9B9; width: 100px; height: 100px;" onclick="$('#input_id1').click()" />
       <input type="file" name="file" id="input_id1" style="display: none;" onchange="return uploadImageToServer('input_id1','images', 'preview_id1');" />
-      <img id="preview_id2" src="/admin/images/icon-add.png" style="border: 1px solid #B8B9B9; width: 100px; height: 100px;" onclick="$('#input_id2').click()" />
+      <img id="preview_id2" src="/book/public/admin/images/icon-add.png" style="border: 1px solid #B8B9B9; width: 100px; height: 100px;" onclick="$('#input_id2').click()" />
       <input type="file" name="file" id="input_id2" style="display: none;" onchange="return uploadImageToServer('input_id2','images', 'preview_id2');" />
-      <img id="preview_id3" src="/admin/images/icon-add.png" style="border: 1px solid #B8B9B9; width: 100px; height: 100px;" onclick="$('#input_id3').click()" />
+      <img id="preview_id3" src="/book/public/admin/images/icon-add.png" style="border: 1px solid #B8B9B9; width: 100px; height: 100px;" onclick="$('#input_id3').click()" />
       <input type="file" name="file" id="input_id3" style="display: none;" onchange="return uploadImageToServer('input_id3','images', 'preview_id3');" />
-      <img id="preview_id4" src="/admin/images/icon-add.png" style="border: 1px solid #B8B9B9; width: 100px; height: 100px;" onclick="$('#input_id4').click()" />
+      <img id="preview_id4" src="/book/public/admin/images/icon-add.png" style="border: 1px solid #B8B9B9; width: 100px; height: 100px;" onclick="$('#input_id4').click()" />
       <input type="file" name="file" id="input_id4" style="display: none;" onchange="return uploadImageToServer('input_id4','images', 'preview_id4');" />
-      <img id="preview_id5" src="/admin/images/icon-add.png" style="border: 1px solid #B8B9B9; width: 100px; height: 100px;" onclick="$('#input_id5').click()" />
+      <img id="preview_id5" src="/book/public/admin/images/icon-add.png" style="border: 1px solid #B8B9B9; width: 100px; height: 100px;" onclick="$('#input_id5').click()" />
       <input type="file" name="file" id="input_id5" style="display: none;" onchange="return uploadImageToServer('input_id5','images', 'preview_id5');" />
     </div>
   </div>
@@ -81,20 +81,20 @@
     callback:function(form){
       $('#form-product-add').ajaxSubmit({
           type: 'post', // 提交方式 get/post
-          url: '/admin/service/product/add', // 需要提交的 url
+          url: '/book/public/index.php/admin/service/product/add', // 需要提交的 url
           dataType: 'json',
           data: {
             name: $('input[name=name]').val(),
             summary: $('input[name=summary]').val(),
             price: $('input[name=price]').val(),
             category_id: $('select[name=category_id] option:selected').val(),
-            preview: ($('#preview_id').attr('src')!='/admin/images/icon-add.png'?$('#preview_id').attr('src'):''),
+            preview: ($('#preview_id').attr('src')!='/book/public/admin/images/icon-add.png'?$('#preview_id').attr('src'):''),
             content: ue.getContent(),
-            preview1: ($('#preview_id1').attr('src')!='/admin/images/icon-add.png'?$('#preview_id1').attr('src'):''),
-            preview2: ($('#preview_id2').attr('src')!='/admin/images/icon-add.png'?$('#preview_id2').attr('src'):''),
-            preview3: ($('#preview_id3').attr('src')!='/admin/images/icon-add.png'?$('#preview_id3').attr('src'):''),
-            preview4: ($('#preview_id4').attr('src')!='/admin/images/icon-add.png'?$('#preview_id4').attr('src'):''),
-            preview5: ($('#preview_id5').attr('src')!='/admin/images/icon-add.png'?$('#preview_id5').attr('src'):''),
+            preview1: ($('#preview_id1').attr('src')!='/book/public/admin/images/icon-add.png'?$('#preview_id1').attr('src'):''),
+            preview2: ($('#preview_id2').attr('src')!='/book/public/admin/images/icon-add.png'?$('#preview_id2').attr('src'):''),
+            preview3: ($('#preview_id3').attr('src')!='/book/public/admin/images/icon-add.png'?$('#preview_id3').attr('src'):''),
+            preview4: ($('#preview_id4').attr('src')!='/book/public/admin/images/icon-add.png'?$('#preview_id4').attr('src'):''),
+            preview5: ($('#preview_id5').attr('src')!='/book/public/admin/images/icon-add.png'?$('#preview_id5').attr('src'):''),
             _token: "{{csrf_token()}}"
           },
           success: function(data) {

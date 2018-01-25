@@ -39,7 +39,7 @@
       @if($category->preview != null)
         <img id="preview_id" src="{{$category->preview}}" style="border: 1px solid #B8B9B9; width: 100px; height: 100px;" onclick="$('#input_id').click()" />
       @else
-        <img id="preview_id" src="/admin/images/icon-add.png" style="border: 1px solid #B8B9B9; width: 100px; height: 100px;" onclick="$('#input_id').click()" />
+        <img id="preview_id" src="/book/public/admin/images/icon-add.png" style="border: 1px solid #B8B9B9; width: 100px; height: 100px;" onclick="$('#input_id').click()" />
       @endif
       <input type="file" name="file" id="input_id" style="display: none;" onchange="return uploadImageToServer('input_id','images', 'preview_id');" />
     </div>
@@ -63,14 +63,14 @@
       // parent.layer.close(index);
       $('#form-category-edit').ajaxSubmit({
           type: 'post', // 提交方式 get/post
-          url: '/admin/service/category/edit', // 需要提交的 url
+          url: '/book/public/index.php/admin/service/category/edit', // 需要提交的 url
           dataType: 'json',
           data: {
             id: "{{$category->id}}",
             name: $('input[name=name]').val(),
             category_no: $('input[name=category_no]').val(),
             parent_id: $('select[name=parent_id] option:selected').val(),
-            preview: ($('#preview_id').attr('src')!='/admin/images/icon-add.png'?$('#preview_id').attr('src'):''),
+            preview: ($('#preview_id').attr('src')!='/book/public/admin/images/icon-add.png'?$('#preview_id').attr('src'):''),
             _token: "{{csrf_token()}}"
           },
           success: function(data) {

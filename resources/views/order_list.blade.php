@@ -7,6 +7,8 @@
     <div class="weui_cells_title">
       <span>订单号: {{$order->order_no}}</span>
 
+     
+
         @if($order->status == 1)
           <span style="float: right;" class="bk_price">
             未支付
@@ -17,6 +19,8 @@
           </span>
         @endif
 
+     
+  
     </div>
     <div class="weui_cells">
         @foreach($order->order_items as $order_item)
@@ -34,8 +38,25 @@
               </div>
           </div>
         @endforeach
+
+        <div class="weui_cell">
+
+              <div class="weui_cell_hd">
+                
+              </div>
+              <div class="weui_cell_bd weui_cell_primary">
+                
+              </div>
+
+        <div   class="weui_cell_ft" >
+                <span  class="bk_summary">合计:</span>
+                
+                <span   class="bk_price">{{$order->total_price}}</span>
+        </div>
+        </div>
+
     </div>
-    <div class="weui_cells_tips" style="text-align: right;">合计: <span class="bk_price">{{$order->total_price}}</span></div>
+    <div  class="weui_cells_tips" style="text-align: right;"></div>
   @endforeach
 @endsection
 

@@ -47,15 +47,15 @@ $('.weui_select').change(function(event) {
 
 function _getCategory() {
   var parent_id = $('.weui_select option:selected').val();
-  console.log('parent_id: ' + parent_id);
+  // console.log('parent_id: ' + parent_id);
   $.ajax({
     type: "GET",
     url: '/book/public/index.php/service/category/parent_id/' + parent_id,
     dataType: 'json',
     cache: false,
     success: function(data) {
-      console.log("获取类别数据:");
-      console.log(data);
+      // console.log("获取类别数据:");
+      // console.log(data);
       if(data == null) {
         $('.bk_toptips').show();
         $('.bk_toptips span').html('服务端错误');

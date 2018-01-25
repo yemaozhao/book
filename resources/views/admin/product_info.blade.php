@@ -47,7 +47,8 @@
   <div class="row cl">
     <label class="form-label col-3">详细内容：</label>
     <div class="formControls col-8">
-      {{$pdt_content->content}}
+      {{-- {{$pdt_content->content}} --}}
+      {!! $pdt_content->content !!}
     </div>
   </div>
   <div class="row cl">

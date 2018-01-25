@@ -4,7 +4,7 @@
 <div class="pd-20">
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
 		<span class="l">
-			{{-- <a href="javascript:;" onclick="category_add('添加会员','/admin/member_add')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加会员</a> --}}
+			{{-- <a href="javascript:;" onclick="category_add('添加会员','/book/public/index.php/admin/member_add')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加会员</a> --}}
 		</span>
 		<span class="r">共有数据：<strong>{{count($orders)}}</strong> 条</span>
 	</div>
@@ -50,7 +50,7 @@
 					@endif</td>
           <td>{{$order->member_id}}</td>
 					<td class="td-manage">
-						<a title="编辑" href="javascript:;" onclick="order_edit('编辑订单','/admin/order_edit?id={{$order->id}}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+						<a title="编辑" href="javascript:;" onclick="order_edit('编辑订单','/book/public/index.php/admin/order_edit?id={{$order->id}}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
 						{{-- <a title="删除" href="javascript:;" onclick='category_del("{{$member->nickname}}", "{{$member->id}}")' class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a> --}}
 					</td>
 				</tr>
