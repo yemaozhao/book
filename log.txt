@@ -230,3 +230,93 @@ response body = <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </TemplateSMS>
 </Response>
 
+request body = <TemplateSMS>
+                    <to>13600264231</to>
+                    <appId>8a216da861033c5d016104538afb00c9</appId>
+                    <templateId>1</templateId>
+                    <datas><data>018376</data><data>60</data></datas>
+                  </TemplateSMS>
+request url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a216da861033c5d016104538a5800c2/SMS/TemplateSMS?sig=3C081A45F168BA500902BDCBBCA71B20
+response body = <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Response>
+    <statusCode>000000</statusCode>
+    <TemplateSMS>
+        <smsMessageSid>6e570b1cfca443ac862212999a5b0ab2</smsMessageSid>
+        <dateCreated>20180125233719</dateCreated>
+    </TemplateSMS>
+</Response>
+
+request body = <TemplateSMS>
+                    <to>13600264231</to>
+                    <appId>8a216da861033c5d016104538afb00c9</appId>
+                    <templateId>1</templateId>
+                    <datas><data>222112</data><data>60</data></datas>
+                  </TemplateSMS>
+request url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a216da861033c5d016104538a5800c2/SMS/TemplateSMS?sig=0063CA4D6AE096D1BB068A6918544512
+response body = <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Response>
+    <statusCode>000000</statusCode>
+    <TemplateSMS>
+        <smsMessageSid>a44609a0a7d144d8a47909b02de95d54</smsMessageSid>
+        <dateCreated>20180125234043</dateCreated>
+    </TemplateSMS>
+</Response>
+
+request body = <TemplateSMS>
+                    <to>18620869290</to>
+                    <appId>8a216da861033c5d016104538afb00c9</appId>
+                    <templateId>1</templateId>
+                    <datas><data>369311</data><data>60</data></datas>
+                  </TemplateSMS>
+request url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a216da861033c5d016104538a5800c2/SMS/TemplateSMS?sig=247DCB50A28ED0AC6972E1EB77798CDF
+response body = <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Response>
+    <statusCode>113302</statusCode>
+    <statusMsg>【短信】您正在使用云通讯测试模板且短信接收者不是注册的测试号码</statusMsg>
+</Response>
+
+request body = <TemplateSMS>
+                    <to>18620869290</to>
+                    <appId>8a216da861033c5d016104538afb00c9</appId>
+                    <templateId>1</templateId>
+                    <datas><data>698115</data><data>60</data></datas>
+                  </TemplateSMS>
+request url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a216da861033c5d016104538a5800c2/SMS/TemplateSMS?sig=D06336C63FD3193F9B4D8CE8BEA4329A
+response body = <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Response>
+    <statusCode>113302</statusCode>
+    <statusMsg>【短信】您正在使用云通讯测试模板且短信接收者不是注册的测试号码</statusMsg>
+</Response>
+
+request body = <TemplateSMS>
+                    <to>18620869290</to>
+                    <appId>8a216da861033c5d016104538afb00c9</appId>
+                    <templateId>1</templateId>
+                    <datas><data>221213</data><data>60</data></datas>
+                  </TemplateSMS>
+request url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a216da861033c5d016104538a5800c2/SMS/TemplateSMS?sig=B89DDF6710D13C4101EC895AED7B9BC6
+response body = <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Response>
+    <statusCode>000000</statusCode>
+    <TemplateSMS>
+        <smsMessageSid>92dd60868bf8451d9620d366b7be3cf0</smsMessageSid>
+        <dateCreated>20180126175307</dateCreated>
+    </TemplateSMS>
+</Response>
+
+request body = <TemplateSMS>
+                    <to>13544866010</to>
+                    <appId>8a216da861033c5d016104538afb00c9</appId>
+                    <templateId>1</templateId>
+                    <datas><data>456151</data><data>60</data></datas>
+                  </TemplateSMS>
+request url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a216da861033c5d016104538a5800c2/SMS/TemplateSMS?sig=38FFD4CC1FF9931B0BB0B4D4853296AD
+response body = <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Response>
+    <statusCode>000000</statusCode>
+    <TemplateSMS>
+        <smsMessageSid>533b51e5c18047fa976a9f2164617b0d</smsMessageSid>
+        <dateCreated>20180126223536</dateCreated>
+    </TemplateSMS>
+</Response>
+

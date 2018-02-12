@@ -11,46 +11,66 @@
 |
 */
 
+//////////////////////////----------调试---------////////////////////
 use App\Entity\Member;
 
-Route::get('/', 'View\MemberController@toLogin');
 
-Route::get('/login', 'View\MemberController@toLogin');
+// Route::get('/test', function () {
+ 
+//     if (\Cache::has('testOne')) {
+//         echo '存在chche,读取' . '<br />';
+//         echo \Cache::get('testOne');
+//     } else {
+//         echo '不存在cache,现在创建' . '<br />';
+//         $time = \Carbon\Carbon::now()->addMinutes(10);
+//         $redis = \Cache::add('testOne', '我是缓存资源,显示当前时间：'.\Carbon\Carbon::now(), $time);
+//         echo \Cache::get('testOne');
+//     }
+// });
 
-Route::get('/register', 'View\MemberController@toRegister');
-Route::get('/category', 'View\BookController@toCategory');
-Route::get('/product/category_id/{category_id}', 'View\BookController@toProduct');
-Route::get('/product/{product_id}', 'View\BookController@toPdtContent');
-Route::get('/cart', 'View\CartController@toCart');
+/////////////////////////////////////////////////////////
+Route::group(['middleware' => 'active.record'], function () {
 
+    Route::get('/', 'View\MemberController@toLogin');
 
+    Route::get('/login', 'View\MemberController@toLogin');
 
-
-Route::group(['prefix' => 'service'], function () {
-	Route::any('validate/create', 'Service\ValidateController@create');
-	Route::any('validate_phone/send', 'Service\ValidateController@sendSMS');
-	Route::post('register', 'Service\MemberController@register');
-	Route::post('login', 'Service\MemberController@login');
-	Route::any('validate_email', 'Service\ValidateController@validateEmail');
-
-	Route::get('category/parent_id/{parent_id}', 'Service\BookController@getCategoryByParentId');
-	Route::get('cart/add/{product_id}', 'Service\CartController@addCart');
-	Route::get('cart/delete', 'Service\CartController@deleteCart');
-
-  Route::any('upload/{type}', 'Service\UploadController@uploadFile');
-  
-
-});
-
-Route::group(['middleware' => 'check.login'], function () {
-    
-	Route::get('/order_commit', 'View\OrderController@toOrderCommit');
-	Route::get('/order_list', 'View\OrderController@toOrderList');
-
-	Route::post('service/basic_pay', 'Service\PayController@basicPay');
+    Route::get('/register', 'View\MemberController@toRegister');
+    Route::get('/category', 'View\BookController@toCategory');
+    Route::get('/product/category_id/{category_id}', 'View\BookController@toProduct');
+    Route::get('/product/{product_id}', 'View\BookController@toPdtContent');
+    Route::get('/cart', 'View\CartController@toCart');
 
 
-    
+
+
+    Route::group(['prefix' => 'service'], function () {
+    	Route::any('validate/create', 'Service\ValidateController@create');
+    	Route::any('validate_phone/send', 'Service\ValidateController@sendSMS');
+    	Route::post('register', 'Service\MemberController@register');
+    	Route::post('login', 'Service\MemberController@login');
+    	Route::any('validate_email', 'Service\ValidateController@validateEmail');
+
+    	Route::get('category/parent_id/{parent_id}', 'Service\BookController@getCategoryByParentId');
+    	Route::get('cart/add/{product_id}', 'Service\CartController@addCart');
+    	Route::get('cart/delete', 'Service\CartController@deleteCart');
+
+      Route::any('upload/{type}', 'Service\UploadController@uploadFile');
+      
+
+    });
+
+    Route::group(['middleware' => 'check.login'], function () {
+        
+    	Route::get('/order_commit', 'View\OrderController@toOrderCommit');
+    	Route::get('/order_list', 'View\OrderController@toOrderList');
+
+    	Route::post('service/basic_pay', 'Service\PayController@basicPay');
+
+
+        
+    });
+
 });
 
 

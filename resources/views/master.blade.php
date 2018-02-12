@@ -47,10 +47,14 @@
             <div class="weui_actionsheet_cell" onclick="onMenuItemClick(1)">登录/注册@if(Session::has('member')) (已登录) 
             @else
             (未登录) 
-          @endif</div>
+          @endif
+        </div>
             <div class="weui_actionsheet_cell" onclick="onMenuItemClick(2)">书籍类别</div>
             <div class="weui_actionsheet_cell" onclick="onMenuItemClick(3)">购物车</div>
             <div class="weui_actionsheet_cell" onclick="onMenuItemClick(4)">我的订单</div>
+
+            {{-- <div class="weui_actionsheet_cell" >上次活跃</div> --}}
+
         </div>
         <div class="weui_actionsheet_action">
             <div class="weui_actionsheet_cell" id="actionsheet_cancel">取消</div>

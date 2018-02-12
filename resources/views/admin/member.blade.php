@@ -13,10 +13,12 @@
 		<thead>
 			<tr class="text-c">
 				<th width="80">ID</th>
-				<th width="100">昵称</th>
+				<th width="40">昵称</th>
 				<th width="40">手机号</th>
 				<th width="90">邮箱</th>
 				<th width="50">邮箱是否激活</th>
+				<th width="60">最近活跃时间</th>
+
 				<th width="100">操作</th>
 			</tr>
 		</thead>
@@ -35,6 +37,9 @@
               <span class="label label-danger radius">未激活</span>
   					@endif
           @endif</td>
+					
+					<td>{{$member->last_actived_at}}</td>
+				
 					<td class="td-manage">
 						<a title="编辑" href="javascript:;" onclick="member_edit('编辑类别','/book/public/index.php/admin/member_edit?id={{$member->id}}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
 						{{-- <a title="删除" href="javascript:;" onclick='category_del("{{$member->nickname}}", "{{$member->id}}")' class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a> --}}

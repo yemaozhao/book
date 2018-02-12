@@ -10,6 +10,7 @@ use App\Entity\PdtContent;
 use App\Entity\PdtImages;
 use App\Entity\CartItem;
 use Log;
+use App\Entity\Member;
 
 class BookController extends Controller
 {
@@ -17,6 +18,8 @@ class BookController extends Controller
   {
     Log::info("进入书籍类别");
     $categorys = Category::whereNull('parent_id')->get();
+
+    // Member::
     return view('category')->with('categorys', $categorys);
   }
 

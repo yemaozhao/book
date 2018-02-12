@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Entity\Category;
 use App\Entity\Product;
 use App\Entity\PdtContent;
-use App\Entity\pdtImages;
+use App\Entity\PdtImages;
 use Illuminate\Http\Request;
 use App\Models\M3Result;
 

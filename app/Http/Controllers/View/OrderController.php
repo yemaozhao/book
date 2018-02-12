@@ -9,7 +9,7 @@ use App\Entity\Product;
 use App\Entity\Order;
 use App\Entity\OrderItem;
 use App\Models\BKWXJsConfig;
-use App\Tool\WXpay\WXTool;
+use App\Tool\wxpay\WXTool;
 use Log;
 
 class OrderController extends Controller

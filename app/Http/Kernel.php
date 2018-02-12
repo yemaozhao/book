@@ -19,7 +19,8 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
-        // \App\Http\Middleware\VerifyCsrfToken::class,
+        //// \App\Http\Middleware\VerifyCsrfToken::class,
+        // \App\Http\Middleware\RecordLastActivedTime::class,
 
     ];
 
@@ -63,5 +64,6 @@ class Kernel extends HttpKernel
         'check.admin.login' => \App\Http\Middleware\CheckAdminLogin::class,
         'check.weixin' => \App\Http\Middleware\CheckWeixin::class,
         'check.cart' => \App\Http\Middleware\CheckCart::class,
+        'active.record' => \App\Http\Middleware\RecordLastActivedTime::class,
     ];
 }

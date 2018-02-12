@@ -36,11 +36,14 @@
   <div class="weui_cells_title">详细介绍</div>
   <div class="weui_cells">
     <div class="weui_cell">
+      <div style="clear:both;">
         @if($pdt_content != null)
             {!! $pdt_content->content !!}
         @else
 
         @endif
+
+      </div>
     </div>
   </div>
 </div>
